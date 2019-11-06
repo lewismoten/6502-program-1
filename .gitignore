@@ -1,0 +1,5 @@
+# Binary files created by assembler
+*.bin
+
+# Listing of instructions and operands with byte values created by assembler
+*.lst
