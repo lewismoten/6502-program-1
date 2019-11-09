@@ -28,6 +28,8 @@ Note that 16 bit numbers are written out as little-endian where the most signifi
 
 # Output
 
+Note that the 6502 chip looks for the first address to read stored at 0xFFFB and 0xFFFC (decimal 65,531) after initialization.
+
 ## HEX Dump
 
 65,536 bytes (64K)
@@ -67,3 +69,23 @@ Note that the last `JMP` instruction at `0x0FFA` isn't necessary (but the addres
 | 3,856 | 1,024 |  | Do nothing | * |  |  |
 | 4,080 |  |  |  |  |  |  |  |  |  |  | Go to step | 3,840 | | Do nothing | * | |
 | 65,536 | **EOF** |
+
+## Verbose Steps
+
+* Step 0. Do nothing
+* ...
+* Step 1,024. Do nothing *(re-written as* `Go to step 3,840` *)*
+* ...
+* Step 3,840. Remember 76 (a jump instruction)
+* Step 3,842. Replace step 1,024 with 76
+* Step 3,845. Remember 0 (low byte of 3,840)
+* Step 3,847. Replace step 1,025 with 0
+* Step 3,850. Remember 15 (high byte of 3,840)
+* Step 3,852. Replace step 1,026 with 15
+* Step 3,855. Go to step 1,024
+* Step 3,858. Do nothing
+* ...
+* Step 65,530. Go to step 3840 *(cpu first step)*
+* Step 65,533. Do nothing
+* Step 65,534. Do nothing
+* Step 65,535. Do nothing
