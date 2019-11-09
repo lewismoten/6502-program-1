@@ -39,7 +39,7 @@ Note that the 6502 chip looks for the first address to read stored at 0xFFFB and
 | 0x0000 | 0xEA | * |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 0x0F00 | 0xA9 | 0x4C | 0x8D | 0x00 | 0x04 | 0xA9 | 0x00 | 0x8Dx | 0x01 | 0x04 | 0xA9 | 0x0F | 0x8D | 0x02 | 0x04 | 0x00  |
 | 0x0F10 | 0x0F | 0xEA | * |
-| 0x0FF0 |  |  |  |  |  |  |  |  |  |  | 0x4C | 0x00 | 0x0F | 0xEA | * | |
+| 0xFFF0 |  |  |  |  |  |  |  |  |  |  | 0x4C | 0x00 | 0x0F | 0xEA | * | |
 | 0x10000 | **EOF** |
 
 
@@ -51,7 +51,7 @@ Note that the 6502 chip looks for the first address to read stored at 0xFFFB and
 | 0x0400 | NOP *JMP* | NOP *0xF00* | NOP | * |  
 | 0x0F00 | LDA | *JMP* | STA | 0x400 | | LDA | 0x00 *0x0F[00]* | STA | 0x401 | | LDA | 0x0F *0x[0F]00* | STA | 0x402 | | JMP |
 | 0x0F10 | 0x0400 |  | NOP | * |  |
-| 0x0FF0 |  |  |  |  |  |  |  |  |  |  | JMP | 0xF00 | | NOP | * | |
+| 0xFFF0 |  |  |  |  |  |  |  |  |  |  | JMP | 0xF00 | | NOP | * | |
 | 0x10000 | **EOF** |
 
 **NOTE**: `NOP` instructions at address `0x0400` to `0x0402` change to `JMP 0x0F00`
@@ -67,7 +67,7 @@ Note that the last `JMP` instruction at `0x0FFA` isn't necessary (but the addres
 | 1,024 | Do nothing *becomes Jump* | Do nothing *becomes step 3,840* | Do nothing | * |
 | 3,840 | Remember number | 76 *(JMP)* | Replace step | 1,024 | | Remember number | 0 | Replace step | 1,025 || Remember number | 15 | Replace step | 1,025 | | Go to step |
 | 3,856 | 1,024 |  | Do nothing | * |  |  |
-| 4,080 |  |  |  |  |  |  |  |  |  |  | Go to step | 3,840 | | Do nothing | * | |
+| 65,520 |  |  |  |  |  |  |  |  |  |  | Go to step | 3,840 | | Do nothing | * | |
 | 65,536 | **EOF** |
 
 ## Verbose Steps
