@@ -7,6 +7,7 @@ The [6502](https://en.wikipedia.org/wiki/MOS_Technology_6502) is an 8-bit microp
 # Programs
 
 * [Code Injection](./src/code-injection/) Modifies memory and executes it as a command.
+* [Ben Eater 6502](./src/ben-eater-6502) Files written for Ben Eater's Video Tutorial.
 
 # Developer Tools
 
