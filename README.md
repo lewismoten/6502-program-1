@@ -21,6 +21,7 @@ The assembler converts assembly language into machine code, resulting in a `bin`
   * Command: `.\tools\asm6\asm6.exe .\src\code-injection\main.asm`
   * Creates `.\src\code-injection\main.bin` to put on your ROM.
   * **Fork** A fork of loopy asm6 assembler [asm6f](https://github.com/freem/asm6f)
+* **Mac/Windows/Linux**: [vasm](http://www.compilers.de/vasm.html) - a portable and retargetable assembler
 
 ### Syntax Highlighting
 
